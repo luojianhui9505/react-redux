@@ -1,70 +1,29 @@
-# Getting Started with Create React App
+## redux
+1、getState()获取状态值
+2、dispatch分发事件
+3、subscribe监听redux数据变化从而刷新页面
+## react-redux
+1、所有的ui组件都应该被一个容器组件包裹，他们是父子关系
+2、容器组件是真正与redux打交道的，里面可以随意的使用redux的api
+3、ui组件中不能使用redux的任何api
+4、容器组件会传给ui组件：（1）redux中所保存的状态（2）用于操作状态的方法
+5、容器给ui传递状态，操作状态的方法均可以通过props传递
+## react-redux的基本使用
+    1、UI组件不能使用任何redux的api，只负责页面的呈现交互等
+    2、容器组件，负责和redux的通信，将结果交给UI组件
+    如何创建一个容器组件？
+    靠react-redux的connect函数，connect(mapStateToProps,mapDispatchToProps)
+    -mapStateToProps:映射状态，返回的是一个对象
+    -maoDispatchToProps:映射操作状态的方法，返回值是一个对象
+    3、容器组件中的store是靠props传进去的，而不是在容器中直接引入
+## react-redux优化
+    1、容器组件和ui组件整合成一个组件
+    2、无需自己给容器组件传store，给<App />包裹一个Provider标签，传递store
+    3、使用react-redux不用再自己监测redux的状态改变了，容器组件可以自动完成这个工作
+## 生成随机数的插件nanoid
+## 纯函数
+1、只要是相同的输入，必定得到同样的输出
+2、不会产生任何的副作用，例如网络请求，输入和输出设备
+3、不能调用Date.now()或Math.random()等不纯的方法
+4、redux的reducer函数必须是一个纯函数
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `yarn start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
