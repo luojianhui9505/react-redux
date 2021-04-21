@@ -7,6 +7,10 @@ class Person extends Component {
     //   将value重命名为name和age
     const { value: name } = this.nameNode;
     const { value: age } = this.ageNode;
+    if(!name.trim()||!age.trim()){
+        alert('姓名或年龄不能为空')
+        return;
+    }
     const personObj = { id: nanoid(), name, age };
     this.props.addPerson(personObj);
     this.nameNode.value = this.ageNode.value = "";
